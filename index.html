@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            overflow-x: hidden;
+        }
+
+        .image {
+            position: absolute;
+            z-index: 100;
+            background: none;
+            /* background-color: rosybrown; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            animation: shrinkAndMove 2s ease-in-out forwards;
+        }
+
+        img {
+            max-width: 50%;
+            max-height: 100%;
+            animation: shrinkAndMoveImg 2s ease-in-out forwards;
+        }
+
+        @keyframes shrinkAndMoveImg {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(.6);
+            }
+        }
+
+        @keyframes shrinkAndMove {
+            0% {
+                top: 0;
+            }
+
+            100% {
+                height: 10vh;
+                top: 0;
+            }
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+
+            /* Start with 0 opacity */
+            60% {
+                opacity: 0;
+            }
+
+            /* Stay at 0 opacity for 2 seconds (60% of 3.3 seconds) */
+            100% {
+                opacity: 1;
+            }
+
+            /* Fade in to 1 opacity in the remaining time */
+        }
+
+        .hero-bg {
+            margin-top: -10px;
+            animation: fade-in 3.3s ease-in-out;
+            /* display: none; */
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+
+        #intro {
+            min-height: 100vh;
+            background-color: rgba(11, 12, 16, .6);
+            color: white;
+            padding: 30px 30px;
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .container {
+            display: flow-root;
+            box-sizing: content-box;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            flex-direction: row;
+        }
+
+        .hero-col-50 {
+            width: 50%;
+        }
+
+        .hero-col-40 {
+            width: 30%;
+        }
+
+        .hero-col-60 {
+            width: 70%;
+        }
+
+        h1#h1-block {
+            margin: 0 0 20px 0;
+            font-family: "Source Sans Pro", sans-serif;
+            font-weight: 200;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 5rem;
+            margin-bottom: 0;
+        }
+
+        .hero-link {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            text-align: right !important;
+            height: 100%;
+            margin-bottom: 0;
+        }
+
+        .flex-inline {
+            display: inline-flex;
+        }
+
+        .flex-nowrap {
+            flex-wrap: nowrap;
+        }
+
+        .width-auto {
+            width: auto;
+        }
+
+        .custom-font {
+            margin: 0 0 20px 0;
+            font-family: "Source Sans Pro", sans-serif;
+            font-weight: 200;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        h2,
+        .custom-h2 {
+            font-size: 2rem;
+            line-height: 1.3;
+        }
+
+        .custom-h6 {
+            font-size: .875rem;
+            line-height: 1.4;
+        }
+
+        .custom-text-bold {
+            font-weight: 700;
+        }
+
+        .custom-section {
+            height: 100vh;
+        }
+
+        .custom-padding-remove {
+            padding: 0 !important;
+        }
+
+        .custom-flex-column {
+            flex-direction: column;
+        }
+
+        .custom-flex-center {
+            justify-content: center;
+        }
+
+        .custom-flex {
+            display: flex;
+        }
+
+        .custom-overlay {
+            padding: 30px 30px;
+        }
+
+        .custom-overlay-default {
+            background-color: rgba(11, 12, 16, .6);
+        }
+
+        .custom-button {
+            cursor: pointer;
+            margin: 0;
+            border: none;
+            overflow: visible;
+            font-family: "Source Sans Pro", sans-serif;
+            color: inherit;
+            text-transform: none;
+            -webkit-appearance: none;
+            border-radius: 0;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 0 30px;
+            vertical-align: middle;
+            font-size: .785em;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: .1s ease-in-out;
+            transition-property: color, background-color, border-color;
+            font-weight: 700;
+        }
+
+        .custom-button-primary {
+            background-color: black;
+            color: white;
+            border: 1px solid rgba(0, 0, 0, 0);
+        }
+
+        .custom-margin {
+            margin: 20px 0;
+        }
+
+        .custom-text-right {
+            text-align: right !important;
+        }
+
+        #text-block {
+            font-family: "Source Sans Pro", sans-serif;
+            font-size: 1rem;
+            padding-right: 40px;
+            line-height: 1.75;
+        }
+
+        .locations-grid {
+            display: flex;
+            height: 100%;
+        }
+
+        .location-cards {
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 33vw;
+        }
+
+        #food-menu-section {
+            height: 100vh;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+
+        .home-locations-block {
+            height: 100%;
+            background: linear-gradient(180deg, rgba(11, 12, 16, 0.99) 4.69%, rgba(11, 12, 16, 0.2) 100%);
+            text-align: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .h2_foodmenu {
+            font-size: 6em;
+        }
+
+        .width-60vw {
+            min-width: 60vw;
+        }
+
+        .nav {
+            /* z-index: 50; */
+            transition: opacity .2s linear;
+            padding-top: 10px;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            height: 100vh;
+            width: 100vw;
+            color: white;
+            background-color: black;
+        }
+        
+        .nav--visible {
+            opacity: 1;
+            transition: opacity .2s linear;
+        }
+
+        .page--hidden{
+            display: none;
+        }
+        
+        .page--invisible {
+            opacity: 0;
+            transition: opacity .2s linear;
+            /* overflow-y: hidden; */
+        }
+
+        .page{
+            /* opacity: 1; */
+            transition: opacity .2s linear;
+        }
+
+        .nav-toggle {
+            /* display: block; */
+            /* margin: 10px 0 0 10px; */
+            top: 10px;
+            left: 10px ;
+            cursor: pointer;
+            position: fixed;
+            z-index: 110;
+            height: 40px;
+            width: 40px;
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-toggle">X</div>
+    <div class="nav">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, dolorem ratione animi, esse dolore nam saepe voluptas corrupti quisquam sapiente error impedit illo, sunt fugiat excepturi sint facilis perferendis iure.</div>
+    <div class="page">
+
+
+        <div class="image">
+            <img src="koza-logo-white-150x85.png" alt="My Image">
+        </div>
+        <div class="hero-bg" style="background-image: url('DSC09447-scaled-1600x2400.jpg');">
+            <section id="intro">
+                <div class="container">
+                    <div class="grid">
+                        <div class="hero-col-50">
+                            <h1 id="h1-block">The Taste Of Modern Asia</h1>
+                        </div>
+                        <div class="hero-col-50">
+                            <div class="hero-link">
+                                <span>
+                                    <a href="" class="uk-h6 uk-text-bold flex-inline flex-nowrap width-auto" target="">
+                                        <div class="custom-font">Unsere Story</div>
+                                        <div class="uk-width-expand" style="max-width:40px"><svg width="32" height="32"
+                                                viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M20 -8.74228e-07L16.475 3.525L30.425 17.5L-9.83506e-07 17.5L-7.64949e-07 22.5L30.425 22.5L16.45 36.45L20 40L40 20L20 -8.74228e-07Z"
+                                                    fill="#FFF6F5"></path>
+                                            </svg></div>
+                                    </a> </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="grid">
+                        <div class="hero-col-40"></div>
+                        <div class="hero-col-60" id="text-block">
+                            Koza fusioniert klassisches japanisches Sushi mit Einflüssen aus der vietnamesischen und
+                            thailändischen Küche. Traditionelle Gewürze verschmelzen mit frischen und sorgfältig
+                            ausgewählten Zutaten. Die modern interpretierten Gerichte zeichnen sich durch Geschmack und
+                            einer ansprechenden Präsentation aus.
+                            <br>
+                            <br>
+                            Jedes Koza hat seine eigene Identität. Die Atmosphäre unterscheidet sich an allen Standorten
+                            und
+                            wir wollen euch damit ein abwechslungsreiches Erlebnis bescheren, ganz gleich ob ihr gerade
+                            in
+                            Hassloch, Landau oder Speyer seid.
+                            <br>
+                            <br>
+                            Kozagang
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="text-align: center;">
+                    <a href="#locations" class="custom-h6 custom-text-bold custom-font" target="" uk-scroll=""
+                        style="text-align: center; text-decoration: none;">Locations<br><svg width="32" height="32"
+                            viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40 20L36.475 16.475L22.5 30.425V0H17.5V30.425L3.55 16.45L0 20L20 40L40 20Z"
+                                fill="#FFF6F5"></path>
+                        </svg></a>
+                </div>
+            </section>
+        </div>
+        <section id="locations"
+            class="custom-section custom-padding-remove custom-flex custom-flex-column custom-flex-center custom-overlay-default">
+            <div class="locations-grid">
+                <div class="location-cards" style="background-image: url('DSC05613-1600x1239.jpg');">
+                    <div class="home-locations-block custom-flex custom-flex-column">
+                        <h2 class="custom-font">Hassloch</h2>
+                        <div>
+                            <button class="custom-button custom-button-primary">Mehr</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-cards" style="background-image: url('DSC05613-1600x1239.jpg');">
+                    <div class="home-locations-block custom-flex custom-flex-column">
+                        <h2 class="custom-font">Hassloch</h2>
+                        <div>
+                            <button class="custom-button custom-button-primary">Mehr</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-cards" style="background-image: url('DSC05613-1600x1239.jpg');">
+                    <div class="home-locations-block custom-flex custom-flex-column">
+                        <h2 class="custom-font">Hassloch</h2>
+                        <div>
+                            <button class="custom-button custom-button-primary">Mehr</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="food-menu-section" style="background-image: url('DSC05097-scaled-1600x1067.jpg');">
+            <section
+                class="foodmenu custom-section custom-overlay-default custom-flex custom-flex-column custom-flex-center custom-overlay">
+                <div class="container custom-text-right width-60vw">
+                    <h2 class="custom-font h2_foodmenu">FOOD MENU</h2>
+                    <div class="custom-margin">
+                        <a href="" class="custom-button custom-button-primary">Hassloch</a>
+                    </div>
+                    <div class="custom-margin">
+                        <a href="" class="custom-button custom-button-primary">Hassloch</a>
+                    </div>
+                    <div class="custom-margin">
+                        <a href="" class="custom-button custom-button-primary">Hassloch</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('.nav');
+        const page = document.querySelector('.page');
+
+        navToggle.addEventListener('click', () => {
+            nav.classList.toggle('nav--visible');
+            page.classList.toggle('page--invisible');
+            setTimeout(() => {
+                page.classList.toggle('page--hidden');
+            }, 300);
+
+        });
+    </script>
+</body>
+
+</html>
