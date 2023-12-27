@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <div class="min-h-full">
+        <nav class="bg-gray-800">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                alt="Your Company" />
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="ml-10 flex items-baseline space-x-4">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    aria-current="page">Dashboard</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-4 flex items-center md:ml-6">
+                            <span style="color: white">Welcome, <%= user.name %></span>
+                            <div class="ml-10 flex items-baseline space-x-4"></div>
+                            <form action="/logout" method="GET"
+                                class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                                style="color: black; background-color: white">
+                                <button class="logout-btn" type="submit">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="-mr-2 flex md:hidden">
+                        <!-- Mobile menu button -->
+                        <span style="color: white">Welcome, <%= user.name %></span>
+                        <div class="ml-10 flex items-baseline space-x-4"></div>
+                        <form action="/logout" method="GET"
+                            class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                            style="color: black; background-color: white">
+                            <button class="logout-btn" type="submit">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <header class="bg-white shadow">
+            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+                    Dashboard
+                </h1>
+            </div>
+        </header>
+        <main style="margin-top: 100px;">
+            <form class="max-w-md mx-auto" action="/dish/createDish/<%= category[0]._id %>" method="post"
+                onsubmit="return addDish('<%= JSON.stringify(foodItems) %>')">
+                <h1 class="text-2xl font-bold mb-10">New Food Item : </h1>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="title">Title</label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="title" name="title" type="text" placeholder="Enter title" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="dishId">Dish ID</label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="dishId" name="dishId" type="text" placeholder="Enter dish ID" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description</label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="description" name="description" type="text" placeholder="Enter description" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="cost">Cost</label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="cost" name="cost" type="number" placeholder="Enter cost" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="category">Category</label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="category" name="category" type="text" placeholder="Enter category" readonly
+                        value="<%= category[0].title %>">
+                </div>
+                <div class="flex items-center justify-left">
+                    <a href="/dashboard"
+                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-3">
+                        Back </a>
+                    <button
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        type="submit">
+                        Add Food Item
+                    </button>
+                </div>
+            </form>
+            <script>
+                function addDish(foodItems) {
+                    // console.log(foodItems);
+                    // event.preventDefault();
+                    let val = document.getElementById("dishId").value;
+                    // check if dishid is non integer
+                    if (!Number.isInteger(Number(val))) {
+                        event.preventDefault();
+                        alert("Dish ID must be an integer!");
+                        return false;
+                    };
+
+                    foodItems = JSON.parse(foodItems);
+                    var duplicateFoodItem = foodItems.find(function (foodItem) {
+                        return foodItem.dishId == val;
+                    });
+
+                    if (duplicateFoodItem) {
+                        event.preventDefault();
+                        alert("Item with same ID already exists!");
+                        return false;
+                    }
+                    return true;
+                }
+            </script>
+
+        </main>
+    </div>
+</body>
+
+</html>
