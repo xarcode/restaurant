@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <div class="min-h-full">
+        <nav class="bg-gray-800">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                                alt="Your Company" />
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="ml-10 flex items-baseline space-x-4">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    aria-current="page">Dashboard</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-4 flex items-center md:ml-6">
+                            <span style="color: white">Welcome, <%= user.name %></span>
+                            <div class="ml-10 flex items-baseline space-x-4"></div>
+                            <form action="/logout" method="GET"
+                                class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                                style="color: black; background-color: white">
+                                <button class="logout-btn" type="submit">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="-mr-2 flex md:hidden">
+                        <!-- Mobile menu button -->
+                        <span style="color: white">Welcome, <%= user.name %></span>
+                        <div class="ml-10 flex items-baseline space-x-4"></div>
+                        <form action="/logout" method="GET"
+                            class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                            style="color: black; background-color: white">
+                            <button class="logout-btn" type="submit">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <header class="bg-white shadow">
+            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+                    Dashboard
+                </h1>
+            </div>
+        </header>
+        <main>
+            <div class="mx-auto max-w-8xl py-6 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-4 gap-2">
+                    <div class="bg-gray-200 p-4">
+                        <h2 class="text-2xl font-bold mb-9">Categories</h2>
+                        <ul>
+                            <% categories.forEach(function(category) { %>
+                                <li
+                                    style="margin-bottom: 15px;border-bottom: 1px solid rgb(196, 196, 196);padding-bottom: 5px;">
+                                    <div class="flex justify-between mt-2">
+                                        <span style="padding-top: 0px;cursor: pointer;"
+                                            onclick="filterFoodItems('<%= JSON.stringify(category) %>','<%= JSON.stringify(foodItems) %>')">
+                                            <div style="color: rgb(170, 169, 169);font-size: 90%;">ID-<%=
+                                                    category.categoryId %>
+                                            </div>
+                                            <div>
+                                                <%= category.title %>
+                                            </div>
+                                        </span>
+                                        <div class="flex justify-end mt-2" style="display: inline;">
+                                            <form action="/editCategory/<%= category.categoryId %>"
+                                                style="display: inline-block;">
+                                                <button class="bg-blue-500 text-white rounded-md px-3 py-2 mr-2 mb-2"
+                                                    type="submit">Edit</button>
+                                            </form>
+                                            <form action="/category/deleteCategory/<%= category._id %>" method="post"
+                                                style="display: inline-block;" onsubmit="return removeCategory()">
+                                                <button
+                                                    class="bg-red-500 text-white rounded-md px-3 py-2">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                                <% }); %>
+                        </ul>
+                        <form action="/addcategory">
+                            <button class="bg-green-500 text-white rounded-md px-3 py-2 mt-4" type="submit">Add
+                                Category</button>
+                        </form>
+
+                    </div>
+                    <div class="md:col-span-3 bg-gray-200 p-4 " id="fooditems">
+                        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                            <h1 class="text-3xl font-bold tracking-tight text-gray-900 text-center">
+                                Welcome To Dashboard
+                            </h1>
+                            <p class="text-lg text-gray-700 text-center mt-4">
+                                To View Food Items, click on the respective category
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        function removeCategory() {
+            let val = confirm('Are you sure you want to delete this category?');
+            if (!val) {
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+        function removeFoodItem() {
+            let val = confirm('Are you sure you want to delete this food item?');
+            if (!val) {
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+        function filterFoodItems(category, foodItems) {
+            category = JSON.parse(category);
+            foodItems = JSON.parse(foodItems);
+            // console.log(category);
+            let clr = 1;
+
+            const divv = document.getElementById('fooditems');
+            divv.innerHTML = '';
+            const h2 = document.createElement('h2');
+            h2.classList.add('text-2xl', 'font-bold', 'mb-10');
+            h2.textContent = 'Food Items';
+            divv.appendChild(h2);
+
+            // const tableBody = document.getElementById('itemstable');
+            // tableBody.innerHTML = '';
+            const tablee = document.createElement('table');
+            tablee.style.width = '100%';
+            tablee.style.textAlign = 'left';
+            tablee.style.marginTop = '20px';
+            tablee.style.marginBottom = '20px';
+            tablee.style.borderCollapse = 'collapse';
+            tablee.style.borderSpacing = '0 10px';
+
+            const thead = document.createElement('thead');
+            const tr = document.createElement('tr');
+            const th1 = document.createElement('th');
+            th1.textContent = 'Name';
+            const th2 = document.createElement('th');
+            th2.textContent = 'Description';
+            const th3 = document.createElement('th');
+            th3.textContent = 'Price';
+            const th4 = document.createElement('th');
+            th4.textContent = '';
+            tr.appendChild(th1);
+            tr.appendChild(th2);
+            tr.appendChild(th3);
+            tr.appendChild(th4);
+            thead.appendChild(tr);
+            tablee.appendChild(thead);
+
+            const tableBody = document.createElement('tbody');
+
+            foodItems.forEach(function (foodItem) {
+                if (foodItem.categoryId == category._id) {
+                    const row = document.createElement('tr');
+                    row.classList.add('food-item-row');
+                    row.setAttribute('data-category', foodItem.category);
+
+                    if (clr == 1) {
+                        row.style.backgroundColor = '#e3e3e3';
+                        clr = 0;
+                    }
+                    else {
+                        row.style.backgroundColor = '#f5f5f5';
+                        clr = 1;
+                    }
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = foodItem.title;
+                    nameCell.classList.add('pl-1', 'pr-6', 'py-4', 'whitespace-nowrap');
+                    row.appendChild(nameCell);
+
+                    const descriptionCell = document.createElement('td');
+                    descriptionCell.textContent = foodItem.description;
+                    row.appendChild(descriptionCell);
+
+                    const priceCell = document.createElement('td');
+                    priceCell.textContent = foodItem.cost;
+                    priceCell.classList.add('pr-10', 'whitespace-nowrap');
+                    row.appendChild(priceCell);
+
+                    const actionCell = document.createElement('td');
+
+                    
+                    // make edit and delete button inside a form , similar to the category
+
+                    
+                    const form1 = document.createElement('form');
+                    form1.action = 'editfooditem/'+foodItem._id;
+                    form1.method = 'GET';
+                    form1.style = 'display: inline-block;';
+
+                    const editButton = document.createElement('button');
+                    editButton.classList.add('bg-blue-500', 'text-white', 'rounded-md', 'px-3', 'py-2', 'mb-1', 'mt-1');
+                    editButton.textContent = 'Edit';
+                    editButton.style.marginLeft = '20px';
+                    editButton.style.marginRight = '10px';
+
+                    form1.appendChild(editButton);
+                    actionCell.appendChild(form1);
+
+                    const form2 = document.createElement('form');
+                    form2.action = 'dish/deleteDish/'+foodItem._id;
+                    form2.method = 'POST';
+                    form2.style = 'display: inline-block;';
+                    form2.onsubmit = function () { 
+                        let val = confirm('Are you sure you want to delete this food item?');
+                        if (!val) {
+                            event.preventDefault();
+                            return false;
+                        }
+                        return true;
+                     }
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.classList.add('bg-red-500', 'text-white', 'rounded-md', 'px-3', 'py-2', 'mb-1');
+                    deleteButton.textContent = 'Delete';
+                    
+                    form2.appendChild(deleteButton);
+                    actionCell.appendChild(form2);
+
+                    row.appendChild(actionCell);
+
+                    tableBody.appendChild(row);
+                }
+            });
+            tablee.appendChild(tableBody);
+            divv.appendChild(tablee);
+            const form = document.createElement('form');
+            form.action = '/addfooditem/'+category._id;
+
+            const btn = document.createElement('button');
+            btn.classList.add('bg-green-500', 'text-white', 'rounded-md', 'px-3', 'py-2', 'mt-4');
+            btn.textContent = 'Add Food';
+            btn.type = 'submit';
+
+            form.appendChild(btn);
+            divv.appendChild(form);
+        }
+    </script>
+</body>
+
+</html>
+
+</div>
+</main>
+</div>
+</body>
+
+</html>
