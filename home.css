@@ -172,23 +172,10 @@ body {
     border: 1px solid #D1C3B1;
 }
 
-#menu_controller_off {
-    opacity: 0;
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    left: 10px;
-    top: 10px;
-    cursor: pointer;
-    padding: 0px 8px;
-    z-index: 110;
-    border: 1px solid #D1C3B1;
-}
-
 #lines hr {
     /* display: block; */
     width: 100%;
-    margin: 8px auto;
+    margin: 9px auto;
 }
 
 .hero-video {
@@ -320,7 +307,7 @@ body {
 
 .text_box .lower_box {
     width: 100%;
-    height: 185px;
+    height: 18vh;
     position: relative;
 }
 
@@ -403,14 +390,14 @@ body {
     padding-right: 40px;
 }
 
-.grid {
+/* .grid {
     display: flex;
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
     list-style: none;
     flex-direction: row;
-}
+} */
 
 .hero-col-50 {
     width: 50%;
@@ -593,16 +580,45 @@ h2,
     padding-top: 10px;
     opacity: 0;
     position: absolute;
+    z-index: 100;
     top: 0;
     height: 100vh;
-    width: 100vw;
+    width: 30vw;
     color: white;
-    background-color: black;
+    background-color: #2E2D2C;
+}
+
+.nav ul{
+    padding: 80px 40px;
+    transition: all .2s;
+}
+
+.nav ul li{
+    transition: all .2s;
+    text-transform: uppercase;
+    margin: 20px 0;
+    font-size: 2rem;
+    /* text-align: center; */
+    font-weight: 500;
+}
+
+.nav:hover a {
+    transition: all .2s;
+    opacity: 0.1;
+}
+.nav:hover ul:hover a {
+    transition: all .2s;
+    opacity: 0.1; 
+}
+.nav:hover ul:hover a:hover {
+    transition: all .2s;
+    opacity: 1;
 }
 
 .nav--visible {
     opacity: 1;
     transition: opacity .2s linear;
+    /* overflow: unset; */
 }
 
 .page--hidden {
@@ -610,7 +626,7 @@ h2,
 }
 
 .page--invisible {
-    opacity: 0;
+    opacity: .3;
     transition: opacity .2s linear;
     /* overflow-y: hidden; */
 }
@@ -633,3 +649,24 @@ h2,
     width: 40px;
     background-color: rgb(255, 255, 255);
 }
+
+.change-color{
+    transition: all .2s;
+    background-color: black;
+    border: 0px;
+}
+
+.navbar{
+    position: fixed;
+    z-index: 100;
+    background-color: black;
+}
+
+#about-us > div > h1{
+    color: #FCC86C ;
+    text-transform: uppercase;
+}
+
+/* .tracking-widest{
+    letter-spacing: 2rem;
+} */
