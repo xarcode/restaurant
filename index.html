@@ -19,6 +19,8 @@
     @media (min-width: 721px){
         .hero-section-reservation-button{
             display: none !important;
+            /* position: absolute;
+            top: 0; */
         }
     }
 </style>
@@ -56,6 +58,7 @@
                 </a>
             </ul>
         </div>
+        
     </div>
     <div class="page_load_section">
         <h3 id="page-load-1">Ready to experience</h3>
@@ -64,16 +67,10 @@
 
     <!-- AYUSH - ADD THIS BUTTON CODE TO RIGHT PLACE -->
 
-    <!-- <div class="navbar-section-reservation-button flex justify-center " style="right:-100px; position:absolute !important;" >
-        <button tag="reservation-button" class="bg-transparent hover:bg-[#fcc86c] hover:text-[#2e2d2c] text-[#fcc86c] text-2xl font-extrabold py-3 px-6 rounded inline-flex items-center"
-            style="border: solid 2px #fcc86c;">
-            <span>Reservieren</span>
-          </button>
-    </div> -->
+    
 
     <div class="page">
         <div class="hero">
-            
             <!-- logo top -->
             <div class="image" style="left:0px;">
                 <img src="./assets/images/brand_logo.png" alt="My Image">
@@ -82,13 +79,19 @@
             
             
             <div class="hero-text">
+                <div class="navbar-section-reservation-button flex justify-center">
+                    <button tag="reservation-button" class="bg-transparent hover:bg-[#fcc86c] hover:text-[#2e2d2c] text-[#fcc86c] text-2xl font-extrabold py-3 px-6 rounded inline-flex items-center"
+                        style="border: solid 2px #fcc86c; border-radius: 0;">
+                        <span>Reservieren</span>
+                      </button>
+                </div>
                 <div class="hero-video">
                     <div id="hero-video-overlay"></div>
                     <video autoplay muted loop id="myVideo" class="blur-md">
                         <source src="kyko.mp4" type="video/mp4">
                     </video>
                     <div class="flex justify-center">
-                        <div id="main_box" class="text_box has_transition_1200 mt-16">
+                        <div id="main_box" class="text_box has_transition_1200 lg:mt-36 mt-24">
                             <div class="upper_box has_transition_1200 mobile_hidden">
                                 <div class="top has_transition_1200_expo"></div>
                                 <div class="left has_transition_1200_expo"></div>
@@ -103,7 +106,7 @@
                                 </div>
                                 <div class="hero-section-reservation-button flex justify-center py-6">
                                     <button tag="reservation-button" class="bg-transparent hover:bg-[#fcc86c] hover:text-[#2e2d2c] text-[#fcc86c] text-2xl font-extrabold py-4 px-6 rounded inline-flex items-center"
-                                        style="border: solid 2px #fcc86c;">
+                                        style="border: solid 2px #fcc86c; position: relative; z-index: 900; border-radius: 0;">
                                         <span>Reservieren</span>
                                       </button>
                                 </div>
@@ -246,8 +249,8 @@
             </svg>
         </a> -->
 
-        <div id="resmio-kyko-restaurant" class="inline-flex items-center rounded-lg justify-center px-5 py-3 
-        text-base font-medium text-center text-white rounded-lg "></div>
+        <!-- <div id="resmio-kyko-restaurant" class="inline-flex items-center rounded-lg justify-center px-5 py-3 
+        text-base font-medium text-center text-white rounded-lg "></div> -->
         
     </div>
     <hr class="my-6 border-gray-100 sm:mx-auto dark:border-gray-500 lg:my-8 w-4/5  " />
@@ -356,11 +359,13 @@
 
 
     <script>
+        
         const navToggle = document.querySelector('#menu_controller');
         const nav = document.querySelector('.nav');
         const page = document.querySelector('.page');
 
         navToggle.addEventListener('click', () => {
+        nav.style.display = 'block';
             nav.classList.toggle('nav--visible');
             page.classList.toggle('page--invisible');
             // setTimeout(() => {
