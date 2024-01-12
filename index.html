@@ -2,16 +2,31 @@
 <html>
 
 <head>
-    <title>My Page</title>
+    <title>KYKO - The Taste of Modern Asia</title>
+    <link rel="stylesheet" href="home.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
+<style>
+    @media (max-width: 720px){
+        .navbar-section-reservation-button{
+            display: none !important;
+        }
+    }
+    @media (min-width: 721px){
+        .hero-section-reservation-button{
+            display: none !important;
+        }
+    }
+</style>
+
+
 <body>
     <!-- NAV -->
-    <div class="navbar">
+    <div class="navbar" style="background:none !important;">
         <div id="menu_controller" class="has_transition_600">
             <div id="lines" class="has_transition_600">
                 <hr class="has_transition_600 _1">
@@ -19,7 +34,7 @@
                 <hr class="has_transition_600 _3">
             </div>
         </div>
-        <div class="nav">
+        <div class="nav" >
             <ul>
                 <a class="nav-links" href="">
                     <li>home</li>
@@ -46,14 +61,25 @@
         <h3 id="page-load-1">Ready to experience</h3>
         <h3 id="page-load-2">The taste of modern asia</h3>
     </div>
+
+    <!-- AYUSH - ADD THIS BUTTON CODE TO RIGHT PLACE -->
+
+    <!-- <div class="navbar-section-reservation-button flex justify-center " style="right:-100px; position:absolute !important;" >
+        <button tag="reservation-button" class="bg-transparent hover:bg-[#fcc86c] hover:text-[#2e2d2c] text-[#fcc86c] text-2xl font-extrabold py-3 px-6 rounded inline-flex items-center"
+            style="border: solid 2px #fcc86c;">
+            <span>Reservieren</span>
+          </button>
+    </div> -->
+
     <div class="page">
         <div class="hero">
-
+            
             <!-- logo top -->
             <div class="image" style="left:0px;">
-                <img src="KYKO_LOGO.png" alt="My Image">
+                <img src="./assets/images/brand_logo.png" alt="My Image">
             </div>
             <!-- hero section -->
+            
             
             <div class="hero-text">
                 <div class="hero-video">
@@ -74,6 +100,12 @@
                                 </div>
                                 <div class="overflow_wrap">
                                     <h4 class="has_transition_600" _msttexthash="208871" _msthash="18">MODERN ASIA</h4>
+                                </div>
+                                <div class="hero-section-reservation-button flex justify-center py-6">
+                                    <button tag="reservation-button" class="bg-transparent hover:bg-[#fcc86c] hover:text-[#2e2d2c] text-[#fcc86c] text-2xl font-extrabold py-4 px-6 rounded inline-flex items-center"
+                                        style="border: solid 2px #fcc86c;">
+                                        <span>Reservieren</span>
+                                      </button>
                                 </div>
                             </div>
                             <div class="lower_box  has_transition_1200 mobile_hidden">
@@ -379,7 +411,7 @@
     
         var js, rjs = d.getElementsByTagName(s)[0];
         js = d.createElement(s);
-        js.src = "https://static.resmio.com/static/de/widget.js#id=kyko-restaurant&width=800px&height=350px";
+        js.src = "https://static.resmio.com/static/de/widget.js#id=kyko-restaurant&width=800px&height=350px&linkBackgroundColor=%23fcc86c";
         rjs.parentNode.insertBefore(js, rjs);
         }(document, "script"));
     
