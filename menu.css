@@ -1,0 +1,26 @@
+.menu{
+    background-color: #2E2D2C;
+}
+
+.c-wrapper{
+    height: 44rem;
+}
+
+.menu-item{
+    color: white;
+    text-align: center;
+}
+
+.menu-item-title h1{
+    text-transform: uppercase;
+}
+
+.menu-item-title hr{
+    border: 2px solid white;
+    width: 50%;
+    margin: 6px auto 24px auto;
+}
+
+.menu-item-price{
+    color: #FCC86C;
+}
