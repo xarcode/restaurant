@@ -248,11 +248,11 @@ body {
 .text_box {
     position: absolute;
     z-index: 100;
-    top: 32%;
+    /* top: 32%;
     left: 50%;
     width: 240px;
     height: 400px;
-    margin-left: -90px;
+    margin-left: -90px; */
 }
 
 .text_box .upper_box {
