@@ -148,7 +148,7 @@ body {
         100% {
             margin-top: 100px;
             height: 8vh;
-            top: 72px;
+            top: 40px;
         }
     }
 
@@ -158,7 +158,7 @@ body {
         }
     
         100% {
-            transform: scale(.55);
+            transform: scale(.45);
         }
     }
 }
@@ -352,6 +352,9 @@ body {
 }
 
 .text_box .pay {
+    position: relative;
+    transform: translateY(20%);
+    top: 50%;
     padding: 20px 0;
     width: 320px;
 }
@@ -393,7 +396,7 @@ body {
         margin: 0 -20px;
         /* width: ; */
         padding-top: 40px;
-        /* font-size: 1rem; */
+        /* font-size: 1; */
     }
 
     .text_box .upper_box{
