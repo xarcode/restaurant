@@ -16,13 +16,25 @@ exports.createDish = async(req, res) => {
                 message:"Category Not found"
             })
         }
-        const { title, dishId, description, cost } = req.body;
-        
+        const obj = req.body;
+        const { title, code, dishId, description, hasVar, varieties,varietiesCode, varietiesCost , dCost } = req.body;
+
+        var hasVariety = true, cost = 0;
+        if (obj.hasvarieties == undefined || obj.hasvarieties == null) {
+          hasVariety = false;
+          cost = obj.cost;
+        }
+        // console.log(cost)
         // New dish object
         const newDish = new Dish({
             title,
+            code,
             dishId,
             description,
+            hasVariety,
+            varieties,
+            varietiesCode,
+            varietiesCost,
             cost,
             categoryId : category._id,
         });
@@ -43,8 +55,7 @@ exports.createDish = async(req, res) => {
         // );
     }
     catch(error){
-        console.log(error);
-        console.error(error);
+        console.log(req.body);
         res.status(500).json({
             success:false,
             data:"Internal Server Error",
