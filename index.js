@@ -3,13 +3,16 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const authenticateToken = require("./middleware/authMiddleware");
 const cookieParser = require("cookie-parser");
-
 const ejs = require("ejs");
+const multer = require("multer");
 
 // Import Models
 const Dish = require("./models/dish");
 const Category = require("./models/Category");
 const Admin = require("./models/Admin");
+
+
+
 
 
 const app = express();
@@ -18,10 +21,23 @@ const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 8000;
 
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, "kyko-menu.pdf");
+  },
+});
+const upload = multer({ storage });
+
 // set template engine
 app.set("view engine", "ejs");
 
 //Middleware to parse the data
+app.use(express.static("./assets"));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -52,6 +68,13 @@ dbConnect();
 app.get('/', (req, res) => {
     res.send("KYKO");
 })
+
+
+app.post("/upload", upload.single("kyko-menu"), (req, res, next) => {
+  // res.json(req.file);
+  res.redirect("/dashboard");
+});
+
 
 app.get("/dashboard", async(req, res) => {
   // Check if user is authenticated (user object is stored in res.locals by the middleware)
