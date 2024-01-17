@@ -92,7 +92,6 @@
                         <span class="text-white font-bold mb-2 pr-14 ml-5">Has Varieties ?</span>
                     </label>
                 </div>
-                <!-- <% if(foodItem[0].hasVariety){ %> -->
                 <div class="flex align-center mb-4 ml-7" id="addVarietyDiv" style="display: none;">
                     <span class="text-white  mr-2">Add a Variety</span>
                     <p class=" text-white p-2 rounded-full bg-[#fcc86c] inline-block">
@@ -101,7 +100,6 @@
                         </svg>
                     </p>
                 </div>
-                <!-- <% } %> -->
                 <div id="varieties">
                     <% if(foodItem[0].hasVariety){ %>
                     <% for(var i=0; i<foodItem[0].varieties.length; i++){ %>
@@ -159,10 +157,12 @@
                 if(hasVarietiesCheckbox.checked){
                     addVarietyDiv.style.display = 'flex';
                     costBlock.style.display = 'none';
+                    varietiesDiv.style.display = 'block';
                 }
                 else{
                     addVarietyDiv.style.display = 'none';
                     costBlock.style.display = 'block';
+                    varietiesDiv.style.display = 'none';
                 }
 
                 hasVarietiesCheckbox.addEventListener('change', function () {
