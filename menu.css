@@ -6,21 +6,42 @@
     height: 44rem;
 }
 
+.menu-body{
+    padding: 20px 50px;
+}
+
+.menu-name{
+    /* display: flex; */
+    /* font-size: 1rem; */
+    align-items: center;
+}
+
 .menu-item{
+    margin-bottom: 3rem;
+}
+
+span.serving-size, span.addon-custom{
+    font-size: 0.8rem;
+    margin-left: 10px;
+    color: rgb(255, 255, 255, 0.5);
+}
+
+.menu-name hr{
+    background-color: #FCC86C;
+    height: 2px;
+    border-top: 1px solid #FCC86C;
+}
+
+.menu-page{
     color: white;
-    text-align: center;
+    padding: 30px;
+    height: 90vh;
 }
 
-.menu-item-title h1{
-    text-transform: uppercase;
+.addon-hiphen{
+    margin-right: 40px;
 }
 
-.menu-item-title hr{
-    border: 2px solid white;
-    width: 50%;
-    margin: 6px auto 24px auto;
-}
-
-.menu-item-price{
-    color: #FCC86C;
+.item-price{
+    text-align: right;
 }
