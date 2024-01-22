@@ -159,6 +159,14 @@ app.get("/editfooditem/:id", async (req,res) =>{
   }
 });
 
+app.get("/career", (req, res) => {
+  res.sendFile(__dirname + "/views/frontend/career.html");
+});
+
+app.get("/contact", (req, res) => {
+  res.sendFile(__dirname + "/views/frontend/contact.html");
+});
+
 app.get("*", function (req, res) {
   res.redirect("/");
 });
