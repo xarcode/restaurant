@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Page</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="menu.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <div id="menu_controller" class="has_transition_600">
+            <div id="lines" class="has_transition_600">
+                <hr class="has_transition_600 _1">
+                <hr class="has_transition_600 _2">
+                <hr class="has_transition_600 _3">
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <a class="nav-links" href="">
+                    <li>home</li>
+                </a>
+                <a class="nav-links" href="">
+                    <li>menu</li>
+                </a>
+                <a class="nav-links" href="">
+                    <li>contact</li>
+                </a>
+                <a class="nav-links" href="">
+                    <li>career</li>
+                </a>
+                <a class="nav-links" href="">
+                    <li>gallery</li>
+                </a>
+                <a class="nav-links" href="#about-us">
+                    <li>about</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="grid lg:grid-cols-3 sm:grid-cols-1">
+        <div class="asian-line flex items-center">
+            <img class="w-full" src="assets/images/line2.png" />
+        </div>
+        <h1 class="text-6xl font-bold text-center mt-4 mb-4" style="color: #FCC86C;">OUR MENU</h1>
+        <div class="asian-line flex items-center">
+            <img class="w-full" src="assets/images/line2.png" />
+        </div>
+    </div>
+
+    <!-- PDF MENU BUTTON -->
+    <section class="flex justify-center mt-6">
+        <a href="menu location">
+        <button onclick="pdfMenuButton()" tag="reservation-button"
+            class="bg-transparent hover:bg-[#fcc86c] hover:text-[#2e2d2c] text-[#fcc86c] text-lg font-extrabold py-1 px-5 rounded inline-flex items-center"
+            style="border: solid 2px #fcc86c; border-radius: 0;">
+            <span>MENU PDF</span>
+        </button>
+        </a>
+    </section>
+
+    <!-- This is an example component -->
+    <div class="menu-body grid lg:grid-cols-2 sm:grid-cols-1 gap-12">
+        <div class="menu-page">
+            <div class="grid lg:grid-cols-3 sm:grid-cols-1 menu-name">
+                <hr>
+                <h1 class="text-xl font-light text-center mt-4 mb-4" style="color: #FCC86C;">VORSPEISEN</h1>
+                <hr>
+            </div>
+            <ol>
+                <li class="menu-item">
+                    <h1 class="item-name">
+                        <span class="item-id">01. </span>DIAMOND ROLLS <span class="serving-size"> (f, h)</span>
+                    </h1>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-description">
+                            Sommerrollen gefüllt mit Wildkräutersalat, Gurken, Reisnudeln, gerösteten Sesam,
+                            serviert mit einer Chili-Limetten Vinaigrette oder einem Soja - Schalotten Dip.
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-addons-container">
+                            <p class="item-addon"><span class="addon-hiphen">-</span>Bio Tofu<span class="addon-custom">
+                                    (m, i, g)</span></p>
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-addons-container">
+                            <p class="item-addon"><span class="addon-hiphen">-</span>gegrillte Hühnerbrust <span
+                                    class="addon-custom">(e)</span></p>
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-addons-container">
+                            <p class="item-addon"><span class="addon-hiphen">-</span>Tempura Garnelen<span
+                                    class="addon-custom"> (i, b, c, n, m, 8) </span></p>
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <h1 class="item-name">
+                        <span class="item-id">01. </span>DIAMOND ROLLS <span class="serving-size"> (f, h)</span>
+                    </h1>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-description">
+                            Sommerrollen gefüllt mit Wildkräutersalat, Gurken, Reisnudeln, gerösteten Sesam,
+                            serviert mit einer Chili-Limetten Vinaigrette oder einem Soja - Schalotten Dip.
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-addons-container">
+                            <p class="item-addon"><span class="addon-hiphen">-</span>Bio Tofu<span class="addon-custom">
+                                    (m, i, g)</span></p>
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-addons-container">
+                            <p class="item-addon"><span class="addon-hiphen">-</span>gegrillte Hühnerbrust <span
+                                    class="addon-custom">(e)</span></p>
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-addons-container">
+                            <p class="item-addon"><span class="addon-hiphen">-</span>Tempura Garnelen<span
+                                    class="addon-custom"> (i, b, c, n, m, 8) </span></p>
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <div class="menu-page">
+            <div class="grid lg:grid-cols-3 sm:grid-cols-1 menu-name">
+                <hr>
+                <h1 class="text-xl font-light text-center mt-4 mb-4" style="color: #FCC86C;">VORSPEISEN</h1>
+                <hr>
+            </div>
+            <ol>
+                <li class="menu-item">
+                    <h1 class="item-name">
+                        <span class="item-id">01. </span>DIAMOND ROLLS <span class="serving-size">(f, h)</span>
+                    </h1>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-description">
+                            Sommerrollen gefüllt mit Wildkräutersalat, Gurken, Reisnudeln, gerösteten Sesam,
+                            serviert mit einer Chili-Limetten Vinaigrette oder einem Soja - Schalotten Dip.
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-addons-container">
+                            <p class="item-addon"><span class="addon-hiphen">-</span>Bio Tofu <span
+                                    class="addon-custom"> (m, i, g)</span></p>
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-addons-container">
+                            <p class="item-addon"><span class="addon-hiphen">-</span>gegrillte Hühnerbrust <span
+                                    class="addon-custom"> (e)</span></p>
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                    <div class="flex item-content">
+                        <div class="flex-auto w-9/12 item-addons-container">
+                            <p class="item-addon"><span class="addon-hiphen">-</span>Tempura Garnelen <span
+                                    class="addon-custom"> (i, b, c, n, m, 8) </span></p>
+                        </div>
+                        <div class="flex-auto w-3/12 item-price">
+                            9.6
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <footer class="bg-white rounded-lg shadow dark:bg-[#2E2D2C] m-4">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <img src="./assets/images/kyko_logo_3.png" class="h-12" alt="Kyko Logo" />
+                </a>
+                <span class="text-gray-400">
+                    <p>Restaurant Timings : 9AM to 11PM &nbsp; | &nbsp;
+                        Store Location : Somewhere in Asia</p>
+                </span>
+                <ul
+                    class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-500 lg:my-8" />
+            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a
+                    href="https://flowbite.com/" class="hover:underline">KYKO</a>. All Rights Reserved.</span>
+        </div>
+    </footer>
+    <script>
+        const navToggle = document.querySelector('#menu_controller');
+        const nav = document.querySelector('.nav');
+        const page = document.querySelector('.page');
+
+        navToggle.addEventListener('click', () => {
+            nav.classList.toggle('nav--visible');
+            page.classList.toggle('page--invisible');
+            // setTimeout(() => {
+            //     page.classList.toggle('page--hidden');
+            // }, 300);
+
+        });
+        const navLinks = document.querySelectorAll('.nav-links');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('nav--visible');
+                page.classList.remove('page--invisible');
+            });
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const controller = document.querySelector('#menu_controller');
+            if (window.scrollY > 50) {
+                controller.classList.add('change-color');
+            } else {
+                controller.classList.remove('change-color');
+            }
+        });
+
+    </script>
+</body>
