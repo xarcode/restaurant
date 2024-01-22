@@ -128,7 +128,7 @@
                             <input
                                 class="shadow appearance-none border rounded w-full py-2 px-3 bg-[#2e2d2c] text-white leading-tight focus:outline-none focus:shadow-outline"
                                 id="varietiesCost" name="varietiesCost" type="number"
-                                value="<%= foodItem[0].varietiesCost[i] %>" required>
+                                value="<%= foodItem[0].varietiesCost[i] %>" step=".01" required>
                         </div>
                     </div>
                     <% } %>
@@ -136,7 +136,7 @@
                 </div>
                 <div class="mb-4" id="costdiv">
                     <label for="cost" class="block text-white text-sm font-bold mb-2">Cost:</label>
-                    <input type="number" id="cost" name="cost" value='<%= foodItem[0].cost %>' required
+                    <input type="number" id="cost" name="cost" value='<%= foodItem[0].cost %>' step=".01" required
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-white bg-[#2e2d2c] leading-tight focus:outline-none focus:shadow-outline">
                 </div>
                 <div class="flex items-center justify-left">
