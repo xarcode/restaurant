@@ -1,0 +1,72 @@
+.menu{
+    background-color: #2E2D2C;
+}
+
+.c-wrapper{
+    height: 44rem;
+}
+
+.menu-body{
+    width: 60vw;
+    margin: auto;
+    padding: 20px 50px;
+}
+
+.menu-name{
+    /* display: flex; */
+    /* font-size: 1rem; */
+    align-items: center;
+}
+
+.menu-item{
+    margin-bottom: 3rem;
+}
+
+span.serving-size, span.addon-custom{
+    font-size: 0.8rem;
+    margin-left: 10px;
+    color: rgb(255, 255, 255, 0.5);
+}
+
+.menu-name hr{
+    background-color: #FCC86C;
+    height: 2px;
+    border-top: 1px solid #FCC86C;
+}
+
+.menu-page{
+    color: white;
+    padding: 30px;
+    /* height: 90vh; */
+}
+
+.addon-hiphen{
+    margin-right: 40px;
+}
+
+.item-price{
+    text-align: right;
+}
+
+@media only screen and (max-width: 767px) {
+    .menu-body{
+        width: 100vw;
+        padding: 10px 0;
+    }
+
+    .menu-name{
+        margin-bottom: 20px;
+    }
+
+    .item-name{
+        margin-bottom: 13px;
+    }
+    
+    .item-description{
+        margin-bottom: 13px;
+    }
+
+    .addon-hiphen{
+        margin-right: 0;
+    }
+}

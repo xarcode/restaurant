@@ -66,7 +66,19 @@ dbConnect();
 
 //Default Route
 app.get('/', (req, res) => {
-    res.send("KYKO");
+    res.sendFile(__dirname + "/views/frontend/index.html");
+})
+
+app.get("/kyko-menu", (req, res) => {
+  res.sendFile(__dirname + "/uploads/kyko-menu.pdf");
+})
+
+app.get("/menu", async(req, res) => {
+    const categoriesQuery = Category.find({});
+    const categories = await categoriesQuery.exec();
+    const foodItemsQuery = Dish.find({});
+    const foodItems = await foodItemsQuery.exec();
+    res.render("frontend/menu",{categories,foodItems});
 })
 
 
