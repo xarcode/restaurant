@@ -163,8 +163,8 @@ app.get("/career", (req, res) => {
   res.sendFile(__dirname + "/views/frontend/career.html");
 });
 
-app.get("/contact", (req, res) => {
-  res.sendFile(__dirname + "/views/frontend/contact.html");
+app.get("/privacy", (req, res) => {
+  res.sendFile(__dirname + "/views/frontend/privacy.html");
 });
 
 app.get("*", function (req, res) {
